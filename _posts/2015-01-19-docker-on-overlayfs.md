@@ -2,14 +2,18 @@
 layout: post
 title: Docker On Overlayfs
 ---
+
 ## Overlayfs
+
 ### 概述
+
 *  Developer:  Miklos Szeredi mszeredi@suse.cz
 *  Kernel Upstream at 2014/10/24, tag as 3.18
 *  Pseudo file-system 
 *  Faster than other union mount file-system, almost native performance
 
 ### 使用
+
 overlayfs能将两个目录“合并”，比如如下两个目录
 
 		/dir1/
@@ -28,6 +32,7 @@ overlayfs示意图如下
 ![image]({{ site.baseurl }}/image/overlayfs.png)
 
 ### overlayfs规则
+
 * merged目录相当于dir1和dir2的联合
 * merged目录中属于dir1的file/dir是read-only的
 * merged目录创建file/dir，实际是在dir2创建
@@ -38,6 +43,24 @@ overlayfs示意图如下
 
 ------
 ## Init流程
+
+* 调用**supportsOverlay**查看当前系统是否支持overlayfs
+* 如果不支持overlayfs，初始化失败退出，返回错误码
+* 成功则继续，创建overlayfs graph home目录，初始化成功返回graphdriver.Driver实例
+
+相关数据结构如下
+```golang
+type ActiveMount struct {
+	count   int
+	path    string
+	mounted bool
+}
+type Driver struct {
+	home       string
+	sync.Mutex // Protects concurrent modification to active
+	active     map[string]*ActiveMount
+}
+```
 ------
 ## Create流程
 
