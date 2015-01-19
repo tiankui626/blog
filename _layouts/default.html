@@ -1,12 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-　　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-　　<title>{{ page.title }}</title>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>{{ page.title }}</title>
+   <meta name="author" content="Tian Kui" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="{{ site.baseurl }}/css/pygments.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css" type="text/css" media="screen, projection" />
+
 </head>
 <body>
 
-　　{{ content }}
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<div class="site">
+  <div class="title">
+      <a href="{{ site.baseurl }}">TianKui</a>
+      <a class="extra" href="{{ site.baseurl }}">home</a>
+  </div>
+  
+  {{ content }}
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        FanChao<br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/tiankui626/">github.com/tiankui626</a><br />
+      </p>
+    </div>
+          <!--
+    <div class="rss">
+      <a href="">
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+        -->
+  </div>
+</div>
+
+<a href="http://github.com/tiankui626"><img style="position: absolute; top: 0; right: 0; border: 0;" src="{{ site.baseurl }}/static/img/forkme_right_red.png" alt="Fork me on GitHub" /></a>
+
+<!-- ClickTale Bottom part -->
+<div id="ClickTaleDiv" style="display: none;"></div>
+<script type="text/javascript">
+if(document.location.protocol!='https:')
+  document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRb.js'%20type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if(typeof ClickTale=='function') ClickTale(206,0.3,"www03");
+</script>
+<!-- ClickTale end of Bottom part -->
+
+<!-- baidu Analytics  -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7f592ce66e56bd7572224ba7c19a8f40' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!-- baidu Analytics end -->
 
 </body>
 </html>
