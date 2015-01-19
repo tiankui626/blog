@@ -12,8 +12,8 @@ title: Docker Overlayfs 源码分析
 ### 使用
 overlayfs能将两个目录“合并”，比如如下两个目录
 
-> dir1/
->>     file1
+		dir1/
+			file1
 
 > dir2/
 >>     file2
