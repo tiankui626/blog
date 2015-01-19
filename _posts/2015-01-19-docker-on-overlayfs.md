@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker Overlayfs 源码分析
+title: Docker On Overlayfs
 ---
 ## Overlayfs
 ### 概述
@@ -35,6 +35,7 @@ overlayfs示意图如下
 * merged目录删除属于dir1目录的file，将会在dir2目录设置该文件为whiteout，实际没有删除dir1目录的file，上层不可见
 * merged目录删除属于dir1目录的dir，将会在dir2目录设置该文件为opaque，实际没有删除dir1目录的dir，上层不可见
 * merged目录修改属于dir1的目录的file，将会copy dir1的file到dir2，然后修改dir2的file
+
 ------
 ## Init流程
 ------
