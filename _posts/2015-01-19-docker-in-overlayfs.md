@@ -12,13 +12,20 @@ title: Docker Overlayfs 源码分析
 ### 使用
 overlayfs能将两个目录“合并”，比如如下两个目录
 
-		dir1/
-			file1
+		./dir1/
+			./file1
+		./dir2/
+			./file2
 
-> dir2/
->>     file2
+mount -t overlayfs overlayfs -olowerdir=/dir1,upperdir=/dir2,workdir=./workerdir ./merged
 
+		./merged/
+			./file1
+			./file2
 
+overlayfs示意图如下
+
+![image]({{ site.baseurl }}/image/overlayfs.png)
 
 ------
 ## Init流程
